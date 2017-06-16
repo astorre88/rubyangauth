@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: rails_devise_token_auth_development
+  username: lifecorr2
+  password: password
+
+test:
+  <<: *default
+  database: rails_devise_token_auth_test
+  username: lifecorr2
+  password: password
+
+production:
+  <<: *default
+  database: rails_devise_token_auth_production
+  username: rails_devise_token_auth
+  password: <%= ENV['RAILS_DEVISE_TOKEN_AUTH_DATABASE_PASSWORD'] %>
