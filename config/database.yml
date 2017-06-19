@@ -6,14 +6,14 @@ default: &default
 development:
   <<: *default
   database: rails_devise_token_auth_development
-  username: lifecorr2
-  password: password
+  username: <%= ENV['PG_DB_USER'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
 
 test:
   <<: *default
   database: rails_devise_token_auth_test
-  username: lifecorr2
-  password: password
+  username: <%= ENV['PG_DB_USER'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
 
 production:
   <<: *default
